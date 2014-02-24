@@ -31,7 +31,7 @@ function backup_tables_unsafe($db_user, $db_pass, $db_name, $db_host = 'localhos
 	}
 
 	//get all of the tables
-	if ($tables === '*' || empty($tables)) {
+	if ('*' === $tables || empty($tables)) {
 		$tables = array();
 		$result = $db_conn->query('SHOW TABLES');
 		while ($row = $result->fetch_array(MYSQLI_NUM)) {
@@ -52,7 +52,7 @@ function backup_tables_unsafe($db_user, $db_pass, $db_name, $db_host = 'localhos
 
 	$date = date('M j, Y \a\t H:i:s');
 	$header = <<<SQL
--- CHUO MDDb SQL Dump
+-- CHUO PMB SQL Dump
 -- Generation Time: {$date}
 
 --
